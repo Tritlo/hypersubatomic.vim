@@ -1,6 +1,6 @@
 " Vim Color File
-" Name: material.vim
-" Maintainer: https://github.com/kaicataldo/material.vim
+" Name: hypersubatomic.vim
+" Maintainer: https://github.com/tritlo/hypersubatomic.vim
 " License: The MIT License (MIT)
 
 " === Configuration ===
@@ -12,13 +12,13 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = 'material'
-let g:material_theme_style = get(g:, 'material_theme_style', 'default')
-let g:material_terminal_italics = get(g:, 'material_terminal_italics', 0)
+let g:colors_name = 'hypersubatomic'
+let g:hypersubatomic_theme_style = get(g:, 'hypersubatomic_theme_style', 'default')
+let g:hypersubatomic_terminal_italics = get(g:, 'hypersubatomic_terminal_italics', 0)
 
 " For backwards compatibility
-if (g:material_theme_style == 'dark')
-  let g:material_theme_style = 'darker'
+if (g:hypersubatomic_theme_style == 'dark')
+  let g:hypersubatomic_theme_style = 'darker'
 endif
 
 " === Functions ===
@@ -26,7 +26,7 @@ endif
 function! s:SetHighlight(group, fg, bg, attr)
   let l:attr = a:attr
 
-  if !g:material_terminal_italics && l:attr == 'italic'
+  if !g:hypersubatomic_terminal_italics && l:attr == 'italic'
     let l:attr = ''
   endif
 
@@ -48,110 +48,76 @@ function! s:SetHighlight(group, fg, bg, attr)
 endfun
 
 " === Color Definitions ===
+"
+" from hypersubatomic:
+" 	Green:		#00ae6b
+" 	Red:		#f2283c
+"	Blue:		#277dff
+"	Cyan:		#00a1b4
+"	Yellow:		#ffc200
+"	Magenta:	#d72e82
+"	Violet:		#875afb
+"	Orange:		#ff7a00
 
 " Default colors
+" Note: the cterms here are not correct, but best effort based on the GUI
+" colors. See convert.py
 set background=dark
-let s:bg = { 'gui': '#263238', 'cterm': 'none' }
-let s:fg = { 'gui': '#eeffff', 'cterm': 231 }
-let s:invisibles = { 'gui': '#65738e', 'cterm': 66 }
-let s:comments = { 'gui': '#546e7a', 'cterm': 145 }
+let s:fg = { 'gui': '#8f93a2', 'cterm': 103 }
+let s:bg = { 'gui': '#0f111a', 'cterm': 'none' }
+let s:invisibles = { 'gui': '#80869e', 'cterm': 103 }
+let s:comments = { 'gui': '#42577e', 'cterm': 60 }
 let s:caret = { 'gui': '#ffcc00', 'cterm': 220 }
-let s:selection = { 'gui': '#2c3b41', 'cterm': 239 }
-let s:guides = { 'gui': '#37474f', 'cterm': 17 }
-let s:line_numbers = { 'gui': '#37474f', 'cterm': 145 }
-let s:line_highlight = { 'gui': '#1a2327', 'cterm': 235 }
+let s:selection = { 'gui': '#1f2233', 'cterm': 60 }
+let s:guides = { 'gui': '#3b3f51', 'cterm': 17 }
+let s:line_numbers = { 'gui': '#3b3f51', 'cterm': 60 }
+let s:line_highlight = { 'gui': '#0a0c12', 'cterm': 0 }
+
+let s:green =  { 'gui': '#00ae6b', 'cterm': 35 } " 186 –– almost perfect match
+let s:red =    { 'gui': '#f2283c', 'cterm': 197 }
+let s:blue =   { 'gui': '#277dff', 'cterm': 33 }
+let s:cyan =   { 'gui': '#00a1b4', 'cterm': 37 }
+let s:yellow = { 'gui': '#ffc200', 'cterm': 214 }
+" We make purple into magenta
+let s:purple = { 'gui': '#d72e82', 'cterm': 162 }
+let s:violet = { 'gui': '#857afb', 'cterm': 99 }
+let s:orange = { 'gui': '#ff7a00', 'cterm': 208 }
+
+
+
 let s:white = { 'gui': '#ffffff', 'cterm': 231 }
 let s:black = { 'gui': '#000000', 'cterm': 232 }
-let s:red = { 'gui': '#ff5370', 'cterm': 203 }
-let s:orange = { 'gui': '#f78c6c', 'cterm': 209 }
-let s:yellow = { 'gui': '#ffcb6b', 'cterm': 11 }
-let s:green = { 'gui': '#c3e88d', 'cterm': 2 } " 186 –– almost perfect match
-let s:cyan = { 'gui': '#89ddff', 'cterm': 117 }
-let s:blue = { 'gui': '#82aaff', 'cterm': 111 }
+
 let s:paleblue = { 'gui': '#b2ccd6', 'cterm': 152 }
-let s:purple = { 'gui': '#c792ea', 'cterm': 176 }
 let s:brown = { 'gui': '#c17e70', 'cterm': 137 }
 let s:pink = { 'gui': '#f07178', 'cterm': 204 }
-let s:violet = { 'gui': '#bb80b3', 'cterm': 139 }
 
-" Theme-specific color overrides
-if g:material_theme_style == 'palenight' || g:material_theme_style == 'palenight-community'
-  let s:bg = { 'gui': '#292d3e', 'cterm': 'none' }
-  let s:fg = { 'gui': '#a6accd', 'cterm': 146 }
-  let s:invisibles = { 'gui': '#4e5579', 'cterm': 60 }
-  let s:comments = { 'gui': '#676e95', 'cterm': 60 }
-  let s:selection = { 'gui': '#343b51', 'cterm': 60 }
-  let s:guides = { 'gui': '#4e5579', 'cterm': 60 }
-  let s:line_numbers = { 'gui': '#3a3f58', 'cterm': 60 }
-  let s:line_highlight = { 'gui': '#1c1f2b', 'cterm': 234 }
-elseif g:material_theme_style == 'darker' || g:material_theme_style == 'darker-community'
-  let s:bg = { 'gui': '#212121', 'cterm': 'none' }
-  let s:fg = { 'gui': '#eeffff', 'cterm': 231 }
-  let s:invisibles = { 'gui': '#65737e', 'cterm': 66 }
-  let s:comments = { 'gui': '#545454', 'cterm': 59 }
-  let s:selection = { 'gui': '#2c2c2c', 'cterm': 237 }
-  let s:guides = { 'gui': '#424242', 'cterm': 0 }
-  let s:line_numbers = { 'gui': '#424242', 'cterm': 0 }
-  let s:line_highlight = { 'gui': '#171717', 'cterm': 0 }
-elseif g:material_theme_style == 'ocean' || g:material_theme_style == 'ocean-community'
-  let s:bg = { 'gui': '#0f111a', 'cterm': 'none' }
-  let s:fg = { 'gui': '#8f93a2', 'cterm': 103 }
-  let s:invisibles = { 'gui': '#80869e', 'cterm': 103 }
-  let s:comments = { 'gui': '#464b5d', 'cterm': 60 }
-  let s:selection = { 'gui': '#1f2233', 'cterm': 60 }
-  let s:guides = { 'gui': '#3b3f51', 'cterm': 17 }
-  let s:line_numbers = { 'gui': '#3b3f51', 'cterm': 60 }
-  let s:line_highlight = { 'gui': '#0a0c12', 'cterm': 0 }
-elseif g:material_theme_style == 'lighter' || g:material_theme_style == 'lighter-community'
-  set background=light
-  let s:bg = { 'gui': '#fafafa', 'cterm': 'none' }
-  let s:fg = { 'gui': '#90a4ae', 'cterm': 109 }
-  let s:invisibles = { 'gui': '#e7eaec', 'cterm': 189 }
-  let s:comments = { 'gui': '#90a4ae', 'cterm': 109 }
-  let s:caret = { 'gui': '#272727', 'cterm': 0 }
-  let s:selection = { 'gui': '#ebf4f3', 'cterm': 254 }
-  let s:guides = { 'gui': '#b0bec5', 'cterm': 146 }
-  let s:line_numbers = { 'gui': '#cfd8dc', 'cterm': 188 }
-  let s:line_highlight = { 'gui': '#ecf0f1', 'cterm': 253 }
-  let s:white = { 'gui': '#ffffff', 'cterm': 231 }
-  let s:black = { 'gui': '#000000', 'cterm': 0 }
-  let s:red = { 'gui': '#e53935', 'cterm': 160 }
-  let s:orange = { 'gui': '#f76d47', 'cterm': 202 }
-  let s:yellow = { 'gui': '#ffb62c', 'cterm': 214 }
-  let s:green = { 'gui': '#91b859', 'cterm': 107 }
-  let s:cyan = { 'gui': '#39adb5', 'cterm': 37 }
-  let s:blue = { 'gui': '#6182b8', 'cterm': 67 }
-  let s:paleblue = { 'gui': '#8796b0', 'cterm': 103 }
-  let s:purple = { 'gui': '#7c4dff', 'cterm': 99 }
-  let s:brown = { 'gui': '#c17e70', 'cterm': 137 }
-  let s:pink = { 'gui': '#ff5370', 'cterm': 203 }
-  let s:violet = { 'gui': '#945eb8', 'cterm': 97 }
-endif
+
 
 " Defined globally so that the Airline theme has access
-let g:material_colorscheme_map = {}
-let g:material_colorscheme_map.bg = s:bg
-let g:material_colorscheme_map.fg = s:fg
-let g:material_colorscheme_map.invisibles = s:invisibles
-let g:material_colorscheme_map.comments = s:comments
-let g:material_colorscheme_map.caret = s:caret
-let g:material_colorscheme_map.selection = s:selection
-let g:material_colorscheme_map.guides = s:guides
-let g:material_colorscheme_map.line_numbers = s:line_numbers
-let g:material_colorscheme_map.line_highlight = s:line_highlight
-let g:material_colorscheme_map.white = s:white
-let g:material_colorscheme_map.black = s:black
-let g:material_colorscheme_map.red = s:red
-let g:material_colorscheme_map.orange = s:orange
-let g:material_colorscheme_map.yellow = s:yellow
-let g:material_colorscheme_map.green = s:green
-let g:material_colorscheme_map.cyan = s:cyan
-let g:material_colorscheme_map.blue = s:blue
-let g:material_colorscheme_map.paleblue = s:paleblue
-let g:material_colorscheme_map.purple = s:purple
-let g:material_colorscheme_map.brown = s:brown
-let g:material_colorscheme_map.pink = s:pink
-let g:material_colorscheme_map.violet = s:violet
+let g:hypersubatomic_colorscheme_map = {}
+let g:hypersubatomic_colorscheme_map.bg = s:bg
+let g:hypersubatomic_colorscheme_map.fg = s:fg
+let g:hypersubatomic_colorscheme_map.invisibles = s:invisibles
+let g:hypersubatomic_colorscheme_map.comments = s:comments
+let g:hypersubatomic_colorscheme_map.caret = s:caret
+let g:hypersubatomic_colorscheme_map.selection = s:selection
+let g:hypersubatomic_colorscheme_map.guides = s:guides
+let g:hypersubatomic_colorscheme_map.line_numbers = s:line_numbers
+let g:hypersubatomic_colorscheme_map.line_highlight = s:line_highlight
+let g:hypersubatomic_colorscheme_map.white = s:white
+let g:hypersubatomic_colorscheme_map.black = s:black
+let g:hypersubatomic_colorscheme_map.red = s:red
+let g:hypersubatomic_colorscheme_map.orange = s:orange
+let g:hypersubatomic_colorscheme_map.yellow = s:yellow
+let g:hypersubatomic_colorscheme_map.green = s:green
+let g:hypersubatomic_colorscheme_map.cyan = s:cyan
+let g:hypersubatomic_colorscheme_map.blue = s:blue
+let g:hypersubatomic_colorscheme_map.paleblue = s:paleblue
+let g:hypersubatomic_colorscheme_map.purple = s:purple
+let g:hypersubatomic_colorscheme_map.brown = s:brown
+let g:hypersubatomic_colorscheme_map.pink = s:pink
+let g:hypersubatomic_colorscheme_map.violet = s:violet
 
 " === Highlights ===
 
@@ -254,7 +220,7 @@ call s:SetHighlight('javaScriptRequire', s:cyan, '', '')
 call s:SetHighlight('javaScriptReserved', s:purple, '', '')
 
 " pangloss/vim-javascript
-if g:material_theme_style !~ '-community$'
+if g:hypersubatomic_theme_style !~ '-community$'
   call s:SetHighlight('jsArrowFunction', s:purple, '', '')
   call s:SetHighlight('jsAsyncKeyword', s:purple, '', '')
   call s:SetHighlight('jsBooleanTrue', s:orange, '', '')
@@ -439,7 +405,7 @@ call s:SetHighlight('texMath', s:orange, '', '')
 call s:SetHighlight('texMathOper', s:yellow, '', '')
 
 " Markdown
-if g:material_theme_style !~ '-community$'
+if g:hypersubatomic_theme_style !~ '-community$'
   call s:SetHighlight('markdownBold', s:pink, '', 'bold')
   call s:SetHighlight('markdownBoldDelimiter', s:cyan, '', '')
   call s:SetHighlight('markdownCode', s:paleblue, '', '')
@@ -476,7 +442,7 @@ else
 endif
 
 " plasticboy/vim-markdown
-if g:material_theme_style !~ '-community$'
+if g:hypersubatomic_theme_style !~ '-community$'
   call s:SetHighlight('mkdBold', s:cyan, '', '')
   call s:SetHighlight('mkdCodeStart', s:green, '', '')
   call s:SetHighlight('mkdCodeDelimiter', s:cyan, '', '')
@@ -489,7 +455,7 @@ if g:material_theme_style !~ '-community$'
 endif
 
 " vimwiki/vimwiki
-if g:material_theme_style !~ '-community$'
+if g:hypersubatomic_theme_style !~ '-community$'
   call s:SetHighlight('VimwikiBold', s:pink, '', 'bold')
   call s:SetHighlight('VimwikiBoldChar', s:cyan, '', 'bold')
   call s:SetHighlight('VimwikiDelText', s:pink, '', 'strikethrough')

@@ -1,15 +1,19 @@
-# material.vim
+# hypersubatomic.vim
 
-A port of the [Material](https://material-theme-website.vercel.app/) color scheme for Vim/Neovim.
+A port of the 
+[usgraphics](https://github.com/usgraphics/hypersubatomic-vscode-theme)
+[hypersubatomic](https://hypersubatomic-theme-website.vercel.app/) color scheme for Vim/Neovim.
 
-![](https://raw.githubusercontent.com/kaicataldo/material.vim/main/screenshots/material-all-variants.png)
+## Color Palette
+
+![](https://raw.githubusercontent.com/tritlo/hypersubatomic.vim/main/screenshots/color-palette.png)
 
 ## Installation
 
 Using [vim-plug](https://github.com/junegunn/vim-plug) (modify this to work with your Vim package manager of choice):
 
 ```vim
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'tritlo/hypersubatomic.vim', { 'branch': 'main' }
 ```
 
 ## Usage
@@ -17,7 +21,7 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 To enable this color scheme, add the following to your Vim (`~/.vimrc`) or Neovim (`~/.config/nvim/init.vim`) configuration:
 
 ```vim
-colorscheme material
+colorscheme hypersubatomic
 ```
 
 ### True Colors
@@ -38,91 +42,29 @@ if (has('termguicolors'))
 endif
 ```
 
-### Theme
-
-There are five color schemes - `default`, `palenight`, `ocean`, `lighter`, and `darker`.
-
-Aditionally, Material's legacy edition ([Community Material](https://github.com/material-theme/vsc-community-material-theme)), is supported for each color scheme - `default-community`, `palenight-community`, `ocean-community`, `lighter-community`, and `darker-community`.
-
-This amounts to a total of ten theme options (defaulting to `default`), that can be configured as follows:
-
-```vim
-let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
-```
-
 ### Italics
 
 To enable italics (`0` or off by default), please add the following to your configuration file:
 
 ```vim
-let g:material_terminal_italics = 1
+let g:hypersubatomic_terminal_italics = 1
 ```
 
 ### Full configuration example
 
 ```vim
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'lighter'
-colorscheme material
+let g:hypersubatomic_terminal_italics = 1
+colorscheme hypersubatomic
 ```
-
-### JavaScript
-The [vim-javascript](https://github.com/pangloss/vim-javascript) plugin, which provides fine-grained JS syntax highlighting features, is highly recommended for proper JavaScript highlighting. The theme will still work without the plugin, however JS highlighting will be minimal.
-
-### lightline.vim
-
-To use the theme, install [lightline.vim](https://github.com/itchyny/lightline.vim) with your Vim package manager of choice and then add the following to your configuration file:
-
-```vim
-let g:lightline = { 'colorscheme': 'material_vim' }
-```
-
-The theme will change to match the theme option specified.
-
-Note: The included theme is called `material_vim` because lightline.vim comes with its own version of a material theme (which does not change based on the theme version selected).
 
 ### airline.vim
 
 To use the included [vim-airline](https://github.com/vim-airline/vim-airline) theme:
 
 ```vim
-let g:airline_theme = 'material'
-```
-
-### lualine.nvim
-
-To use the included [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) theme:
-```lua
-require('lualine').setup({
-  options = {
-    theme = require('material.lualine'),
-  },
-})
-```
-
-
-### Terminal Color Scheme
-
-Corresponding terminal color schemes are included in this repo. You can find them [here](https://github.com/kaicataldo/material.vim/tree/master/terminal-colors/).
-
-#### Vim in macOS
-
-The default version of `vim` on `macOS` doesn't support `termguicolors`. In order for the colorscheme to work properly you need to apply the terminal colors from above. Or you can install the latest version from `brew`.
-
-## Troubleshooting
-
-### Italics not rendering correctly
-
-Italicized text [sometimes does not rendering correctly in iTerm2](https://github.com/kaicataldo/material.vim/issues/56). Before making an issue, if you use iTerm2, please see if this addition to your .vimrc fixes the issue for you:
-
-```vim
-" Fix italics in Vim
-if !has('nvim')
-  let &t_ZH="\e[3m"
-  let &t_ZR="\e[23m"
-endif
+let g:airline_theme = 'hypersubatomic'
 ```
 
 ## Thanks
-
-Thanks to [@equinusocio](https://github.com/equinusocio) for the original Material theme as well as [palenight.vim](https://github.com/drewtempelmeyer/palenight.vim) and [quantum](https://github.com/tyrannicaltoucan/vim-quantum), both of which were of great help when I first started this project.
+Thanks to the [usgraphics](https://github.com/usgraphics/hypersubatomic-vscode-theme) hypersubatomic
+theme from which the colorscheme is derived, and to the [kaicataldo](https://github.com/kaicataldo/material.vim) for the material theme this is forked from.
