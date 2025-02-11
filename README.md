@@ -1,8 +1,6 @@
 # hypersubatomic.vim
 
-A port of the 
-[usgraphics](https://github.com/usgraphics/hypersubatomic-vscode-theme)
-[hypersubatomic](https://hypersubatomic-theme-website.vercel.app/) color scheme for Vim/Neovim.
+A port of the [usgraphics/hypersubatomic](https://github.com/usgraphics/hypersubatomic-vscode-theme) color scheme for Vim/Neovim.
 
 ## Color Palette
 
