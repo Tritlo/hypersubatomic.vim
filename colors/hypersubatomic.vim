@@ -122,8 +122,8 @@ let g:hypersubatomic_colorscheme_map.violet = s:violet
 " === Highlights ===
 
 " Vim Editor
-call s:SetHighlight('ColorColumn', '', s:invisibles, '')
-call s:SetHighlight('Cursor', s:bg, s:caret, '')
+call s:SetHighlight('ColorColumn', '', s:line_numbers, '')
+call s:SetHighlight('Cursor', s:bg, s:yellow, '')
 call s:SetHighlight('CursorColumn', '', s:line_highlight, '')
 call s:SetHighlight('CursorLine', '', s:line_highlight, '')
 call s:SetHighlight('CursorLineNr', s:comments, '', '')
